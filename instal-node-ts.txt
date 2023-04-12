@@ -1,0 +1,11 @@
+1 - npm init -y // cria o projeto Node
+
+2 - npm install typescript // instala a dependência do typescript no projeto
+
+3 - npx tsc --init // cria o arquivo de configuração tsconfig.json
+
+4 - npm i tsx // instala a dependência tsx, que transforma o arquivo TS em JS (já que Node não reconhece TypeScript 
+
+execução - npx tsx src/Carro.ts // executa a Classe (muda de arquivo para arquivo)
+
+alteração - tsconfig.json - "strictPropertyInitialization": false, (descomentar o comando, e colocar false)     

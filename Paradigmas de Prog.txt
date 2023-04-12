@@ -1,0 +1,71 @@
+Classe vs Objeto
+
+classe - algo abstrato; modelo; "o carro"; "time de futbol"
+objeto - algo concreto; exemplo; "o onix"; "corinthians"
+
+classe possui variável
+
+classe carro 
+variáveis:
+marca
+modelo
+ano 
+cor
+
+NPM - Node Package Manager
+Node - conjunto de dependencias
+
+Diagrama de Classe da UML
+UML - Unified Modeling Language
+Representação Gráfica
+Notação da linguagem UML
+---------------------------------
+ALUNO
+---------------------------------
++ numeroAluno: number
++ nome: string
++ idade: number
++ p1: number
++ p2: number
+---------------------------------
++ notaFinal(): number
++ passou(): void
++ dadosAluno(): string
+---------------------------------
++ = variável publica
+- = variável privada
+
+não se coloca constructor, getters e setters no diagrama de classes
+
+
+PARTE/TODO
+
+agregação: 
+- toda vez que a cardinaliade N estiver do lado do diamante, é uma agregação
+- uma associação fraca
+- no diagrama de classe, diamante não preenchido é na parte todo
+- partes independentes
+
+composição:
+- toda vez que a cardinalidade 1 estiver do lado do diamante, é uma agregação
+- uma assosiação forte
+- parte depende do todo, são dependentes
+- se todo for eliminado, parte também é
+- parte está contida no todo 
+
+
+HERANÇA
+
+- Existe uma classe pai que é generica, que leva  a classes filhas que são especificas
+- Classes filhas herdam as variaveis da classe pai
+
+- herança simples: classe filha tem apenas um pai
+- herança multipla: classe filha tem dois ou mais pais
+
+
+POLIMORFISMO
+
+- A classes pai sempre será o parâmetro passado, pois com ela consegue alcançar todas as classes filhas
+- será executada a classe do obj que foi passado como parâmetro
+- os metodos que sserão executados dependerá da classe do obj passado como parâmetro
+- deve ter herança, e anulação de metodos
