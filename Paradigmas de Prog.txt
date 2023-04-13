@@ -40,13 +40,13 @@ não se coloca constructor, getters e setters no diagrama de classes
 
 PARTE/TODO
 
-agregação: 
+agregação: bolinha branca
 - toda vez que a cardinaliade N estiver do lado do diamante, é uma agregação
 - uma associação fraca
 - no diagrama de classe, diamante não preenchido é na parte todo
 - partes independentes
 
-composição:
+composição: bolinha preta
 - toda vez que a cardinalidade 1 estiver do lado do diamante, é uma agregação
 - uma assosiação forte
 - parte depende do todo, são dependentes
