@@ -1,4 +1,5 @@
 import { Patrimonio } from "./Patrimonio";
+import { Manutencoes } from "./Manutencoes";
 
 export class MateriaisEducativos extends Patrimonio {
     private faixaEtaria: number
@@ -6,7 +7,7 @@ export class MateriaisEducativos extends Patrimonio {
     private qtde: number
     private tipoMaterial: string
 
-    constructor(nomePatri: string, codigoPatri: number, estadoPatri: string, dataAquisicao: Date, localPatri: string, faixaEtaria: number, titulo: string, qtde: number, tipo: string) {
+    constructor(nomePatri: string, codigoPatri: number, dataAquisicao: Date, localPatri: string, faixaEtaria: number, titulo: string, qtde: number, tipo: string) {
         super(nomePatri, codigoPatri, dataAquisicao, localPatri)
         this.setFaixaEtaria(faixaEtaria)
         this.setTitulo(titulo)
@@ -28,6 +29,10 @@ export class MateriaisEducativos extends Patrimonio {
 
     setTipoMaterial(tipo: string) {
         (typeof tipo === "string") ? (this.tipoMaterial = tipo) : (this.tipoMaterial = "")
+    }
+
+    addManutencoes(manutencao: Manutencoes){
+        this.manutencoes.push(manutencao)
     }
 
     getFaixaEtaria(): number {

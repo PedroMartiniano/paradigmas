@@ -1,13 +1,12 @@
 import { Manutencoes } from "./Manutencoes"
-import { EstadoPatrimonio } from "./EstadoPatrimonio"
 
 export class Patrimonio {
     protected nomePatrimonio: string
     protected codigoPatrimonio: number
     protected dataAquisicao: Date
     protected localPatrimonio: string
-    protected estadoAtual: EstadoPatrimonio
     protected patri: Patrimonio
+    protected manutencoes: Manutencoes[] = []
 
     constructor(nomePatri: string, codigoPatri: number, dataAquisicao: Date, localPatri: string) {
         this.setNomePatrimonio(nomePatri)
@@ -24,16 +23,16 @@ export class Patrimonio {
         (typeof codigo === "number" && codigo >= 0) ? (this.codigoPatrimonio = codigo) : (this.codigoPatrimonio = -1)
     }
 
-    // setEstadoPatrimonio(estado: string) {
-    //     (typeof estado === "string") ? (this.estadoAtual = estado) : (this.estadoAtual = "")
-    // }
-
     setDataAquisicao(data: Date) {
         (this.dataAquisicao = data)
     }
 
     setLocalPatrimonio(local: string) {
         (typeof local === "string") ? (this.localPatrimonio = local) : (this.localPatrimonio = "")
+    }
+
+    addManutencoes(manutencao: Manutencoes){
+        this.manutencoes.push(manutencao)
     }
 
     getNomePatrimonio(): string {
@@ -43,10 +42,6 @@ export class Patrimonio {
     getCodigoPatrimonio(): number {
         return this.codigoPatrimonio
     }
-
-    // getEstadoAtual(): string {
-    //     return this.estadoAtual
-    // }
 
     getDataAquisicao(): Date {
         return this.dataAquisicao
@@ -60,23 +55,7 @@ export class Patrimonio {
         return this.localPatrimonio
     }
 
-    // estadoPatrimonio(): string {
-    //     return this.estadoAtual
-    // }
-
-    addEstadoPatrimonioExcelente(patri: Patrimonio){
-        this.estadoAtual.addExcelente(patri)
-    }
-
-    addEstadoPatrimonioBom(patri: Patrimonio){
-        this.estadoAtual.addBom(patri)
-    }
-
-    addEstadoPatrimonioRuim(patri: Patrimonio){
-        this.estadoAtual.addRuim(patri)
-    }
-
     toString(): string {
-        return `Património nome: ${this.nomePatrimonio}\nCódigo: ${this.codigoPatrimonio}\ndata de Aquisição: ${this.dataAquisicao}\nLocal Atual do Património: ${this.localPatrimonio}`
+        return `Património nome: ${this.nomePatrimonio}\nCódigo: ${this.codigoPatrimonio}\ndata de Aquisição: ${this.dataAquisicao}\nLocal Atual do Património: ${this.localPatrimonio}\nManutenções: ${this.manutencoes.toString()}`
     }
 }

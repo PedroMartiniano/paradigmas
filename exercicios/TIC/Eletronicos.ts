@@ -1,20 +1,24 @@
 import { Patrimonio } from "./Patrimonio";
+import { Manutencoes } from "./Manutencoes";
 
 export class Eletronico extends Patrimonio {
     private tipoEletronico: string
     private marcaEletronico: string
     private modeloEletronico: string
 
-    constructor(nomePatrimonio: string, codigoPatrimonio: number, estadoAtual: string, dataAquisicao: Date, localPatrimonio: string, tipoEletronico: string, marcaEletronico: string, modeloEletronico: string) {
+    constructor(nomePatrimonio: string, codigoPatrimonio: number, dataAquisicao: Date, localPatrimonio: string, tipoEletronico: string, marcaEletronico: string, modeloEletronico: string) {
         super(nomePatrimonio, codigoPatrimonio, dataAquisicao, localPatrimonio)//herança
         this.setTipoEletronico(tipoEletronico)
         this.setMarcaEletronico(marcaEletronico)
         this.setModeloEletronico(modeloEletronico)
     }
 
-    //setters
     setTipoEletronico(tipo: string) {
         (typeof tipo === "string") ? (this.tipoEletronico = tipo) : (this.tipoEletronico = "")
+    }
+
+    addManutencoes(manutencao: Manutencoes){
+        this.manutencoes.push(manutencao)
     }
 
     setMarcaEletronico(marca: string) {

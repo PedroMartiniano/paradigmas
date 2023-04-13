@@ -1,5 +1,3 @@
-import { CellPhone } from "../listas/lista3/CellPhone"
-
 export class Manutencoes {
     private dataEnvio: Date
     private dataRecebimento: Date
@@ -30,6 +28,6 @@ export class Manutencoes {
     }
 
     toString(): string {
-        return ``
+        return `Data Envio: ${this.dataEnvio}\nData Recebimento: ${this.dataRecebimento}\nPrestador de Serviço: ${this.prestadorServico}\nDescrição: ${this.descricao}`
     }
 }
