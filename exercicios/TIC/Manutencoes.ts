@@ -1,9 +1,12 @@
+// criando a classe "Manutencoes"
 export class Manutencoes {
+    // definindo as variáveis da classe
     private dataEnvio: Date
     private dataRecebimento: Date
     private prestadorServico: string
     private descricao: string
 
+    // criando o construtor
     constructor(dataEnvio: Date, dataRecebimento: Date, prestadorServico: string, descricao: string) {
         this.setDataEnvio(dataEnvio)
         this.setDataRecebimento(dataRecebimento)
@@ -11,6 +14,7 @@ export class Manutencoes {
         this.setDescricao(descricao)
     }
 
+    // setters
     setDataEnvio(dataEnvio: Date) {
         this.dataEnvio = dataEnvio
     }
@@ -27,7 +31,25 @@ export class Manutencoes {
         this.descricao = descricao
     }
 
+    // getters
+    getDataEnvio(): Date{
+        return this.dataEnvio
+    }
+
+    getDataRecebimento(): Date{
+        return this.dataRecebimento
+    }
+
+    getPrestadorServico(): string {
+        return this.prestadorServico
+    }
+
+    getDescricao(): string {
+        return this.descricao
+    }
+
+    // criando "toString"
     toString(): string {
-        return `Data Envio: ${this.dataEnvio}\nData Recebimento: ${this.dataRecebimento}\nPrestador de Serviço: ${this.prestadorServico}\nDescrição: ${this.descricao}`
+        return `\nData Envio: ${this.dataEnvio}\nData Recebimento: ${this.dataRecebimento}\nPrestador de Serviço: ${this.prestadorServico}\nDescrição: ${this.descricao}`
     }
 }

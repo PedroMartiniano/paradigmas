@@ -1,12 +1,16 @@
+// importando as classes "Patrimonio" e "Manutencoes"
 import { Patrimonio } from "./Patrimonio";
 import { Manutencoes } from "./Manutencoes";
 
+// criando a classe filho "MateriaisEducativos" e definindo "Patrimonio" como sua classe pai
 export class MateriaisEducativos extends Patrimonio {
+    // criando as variáveis
     private faixaEtaria: number
     private titulo: string
     private qtde: number
     private tipoMaterial: string
 
+    // criando o construtor e pegando as variáveis da classe pai
     constructor(nomePatri: string, codigoPatri: number, dataAquisicao: Date, localPatri: string, faixaEtaria: number, titulo: string, qtde: number, tipo: string) {
         super(nomePatri, codigoPatri, dataAquisicao, localPatri)
         this.setFaixaEtaria(faixaEtaria)
@@ -15,26 +19,29 @@ export class MateriaisEducativos extends Patrimonio {
         this.setTipoMaterial(tipo)
     }
 
+    // criando os setters
     setFaixaEtaria(faixaEtaria: number) {
-        (typeof faixaEtaria === "number") ? (this.faixaEtaria = faixaEtaria) : (this.faixaEtaria = -1)
+        (faixaEtaria >= 0) ? (this.faixaEtaria = faixaEtaria) : (this.faixaEtaria = 1)
     }
 
     setTitulo(titulo: string) {
-        (typeof titulo === "string") ? (this.titulo = titulo) : (this.titulo = "")
+        this.titulo = titulo
     }
 
     setQtde(qtde: number) {
-        (typeof qtde === "number" && qtde > 0) ? (this.qtde = qtde) : (this.qtde = -1)
+        (qtde > 0) ? (this.qtde = qtde) : (this.qtde = 0)
     }
 
     setTipoMaterial(tipo: string) {
-        (typeof tipo === "string") ? (this.tipoMaterial = tipo) : (this.tipoMaterial = "")
+        this.tipoMaterial = tipo
     }
 
+    // criando "addManutencoes" como anulação de método 
     addManutencoes(manutencao: Manutencoes){
         this.manutencoes.push(manutencao)
     }
 
+    // criando os getters
     getFaixaEtaria(): number {
         return this.faixaEtaria
     }
@@ -51,10 +58,12 @@ export class MateriaisEducativos extends Patrimonio {
         return this.tipoMaterial
     }
 
+    // criando o método "localizarPatrimonio" com anulação de método 
     localizarPatrimonio(): string {
         return this.localPatrimonio
     }
     
+    // criando "toString"
     toString(): string {
         return `\n${super.toString()}\nFaixa Etária: ${this.faixaEtaria}\nTitulo: ${this.titulo}\nQuantidade: ${this.qtde}\nTipo do Material: ${this.tipoMaterial}`
     }
