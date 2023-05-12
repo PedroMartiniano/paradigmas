@@ -3,8 +3,14 @@ import Fastify from 'fastify'
 
 import { AppRoutes } from './routes'
 
+//importa a dependencia cors
+import cors from "@fastify/cors"
+
 // instanciar um objeto da classe fastify
 const app = Fastify()
+
+//registra cors no server
+app.register(cors)
 
 app.register(AppRoutes)
 
