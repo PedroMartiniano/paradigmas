@@ -13,3 +13,30 @@ async function consultaPosts() {
 
     document.getElementById("corpoTabela").innerHTML = conteudoTabela
 }
+
+async function confirmar() {
+
+    const title = document.getElementById("title").value
+    const content = document.getElementById("content").value
+    const published = document.getElementById("sim").Checked
+
+    alert(published)
+    const corpo = [title, content, published]
+
+    const post = await fetch('http://localhost:3333/post', {
+        method: 'POST',
+        body: JSON.stringify(corpo),
+        headers: {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    })
+        .then(resposta => {
+            alert('Operação realizada com sucesso')
+        })
+        .catch(error => {
+            alert('Operação Falhou')
+        })
+        
+        consultaPosts()
+
+}
