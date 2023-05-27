@@ -125,7 +125,7 @@ export async function AppRoutes(app: FastifyInstance) {
     // rota para atualizar N campos de um post
 
     app.put('/posts/:id', async (request) => {
-        // objeto zod para o parâmetro :id
+        // objeto zod para o parâmetro :idF
         const idParam = z.object({
             id: z.string()
         })
